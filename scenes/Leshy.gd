@@ -1,37 +1,57 @@
 extends KinematicBody2D
 
-const DIR_RIGHT = 1
-const DIR_LEFT = -1
-const SPEED = 400
+const UP = Vector2(0,-1)
+const SPEED = 5 * 96
+const GRAVITY = 1200
+const JUMP_VELOCITY = -720
 
-var movedir = Vector2(0,0)
-var spritedir = DIR_RIGHT
+var velocity = Vector2(0,0)
+var is_grounded
+
+onready var raycasts = $Raycasts
 
 func _ready():
 	pass
 	
-func _process(delta):
+func _physics_process(delta):
+	_get_input()
+	velocity.y += GRAVITY * delta
+	velocity = move_and_slide(velocity, UP)
+	is_grounded = _check_is_grounded()
+	_update_animation()
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept") && is_grounded:
+		velocity.y = JUMP_VELOCITY
+		
+func _get_input():
 	var left = Input.is_action_pressed("ui_left")
 	var right = Input.is_action_pressed("ui_right")
-	movedir.x = -int(left) + int(right)
-	
-	if movedir != Vector2(0,0):
-		anim_switch("walk")
-		change_direction(DIR_RIGHT if movedir.x > 0 else DIR_LEFT)
-	else:
-		anim_switch("idle")
-	
-	var motion = movedir.normalized() * SPEED
-	move_and_slide(motion, Vector2(0,0))
-	
-func change_direction(newdir):
-	if spritedir != newdir:
-		apply_scale(Vector2(-1, 1))
-		spritedir = newdir
+	var move_direction = -int(left) + int(right)
+	velocity.x = lerp(velocity.x, SPEED * move_direction, _get_h_weight())
+	if move_direction != 0:
+		$body.scale.x = move_direction		
 
-func anim_switch(animation):
+func _check_is_grounded():
+	for raycast in raycasts.get_children():
+		if raycast.is_colliding():
+			return true
+	return false
+	
+func _get_h_weight():
+	return 0.2 if is_grounded else 0.1
+
+func _update_animation():
+	if velocity.x != 0:
+		_anim_switch("walk")
+	else:
+		_anim_switch("idle")
+	
+func _anim_switch(animation):
 	if $anim.current_animation != animation:
 		$anim.play(animation)
 	
+
+
 			
 

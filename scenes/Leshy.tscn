@@ -212,13 +212,12 @@ tracks/7/keys = {
 "values": [ -16.53, -4.9179, 6.69421, -4.9179, -16.53 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
-radius = 239.578
-height = 112.62
+extents = Vector2( 232.55, 281.608 )
 
-[node name="Leshy" type="KinematicBody2D"]
+[node name="Leshy" type="KinematicBody2D" index="0"]
 
 position = Vector2( 514.603, 285.765 )
 scale = Vector2( 0.5, 0.5 )
@@ -231,14 +230,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="body" type="Sprite" parent="." index="0"]
 
-position = Vector2( -0.301909, -24.0727 )
+position = Vector2( -0.301904, -28.7775 )
 rotation = 0.0691977
 texture = ExtResource( 2 )
 
 [node name="arm" type="Sprite" parent="body" index="0"]
 
 position = Vector2( -35.1975, -34.295 )
-rotation = -0.0891849
+rotation = -0.0627046
 texture = ExtResource( 3 )
 offset = Vector2( 30, 50 )
 _sections_unfolded = [ "Offset" ]
@@ -246,7 +245,7 @@ _sections_unfolded = [ "Offset" ]
 [node name="hand" type="Sprite" parent="body/arm" index="0"]
 
 position = Vector2( 130.862, 65.8825 )
-rotation = -0.0126794
+rotation = 0.152131
 z_index = -1
 texture = ExtResource( 4 )
 offset = Vector2( -100, -20 )
@@ -271,9 +270,36 @@ _sections_unfolded = [ "Playback Options" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-visible = false
 position = Vector2( 6.64831, -15.5125 )
 rotation = 1.56347
-shape = SubResource( 3 )
+shape = SubResource( 6 )
+
+[node name="Raycasts" type="Node2D" parent="." index="3"]
+
+position = Vector2( -1.95081, 54.144 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts" index="0"]
+
+position = Vector2( 284.681, 196.61 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts" index="1"]
+
+position = Vector2( -264.442, 199.536 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts" index="2"]
+
+position = Vector2( 30.1141, 197.585 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 3
 
 
