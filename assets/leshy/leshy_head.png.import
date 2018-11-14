@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/leshy_body.png-586da2ec4738a9b42480558fedba581b.stex"
+path="res://.import/leshy_head.png-6a492720a03e5bea7bad40cc4e3a83d6.stex"
 
 [deps]
 
-source_file="res://assets/leshy/leshy_body.png"
-dest_files=[ "res://.import/leshy_body.png-586da2ec4738a9b42480558fedba581b.stex" ]
+source_file="res://assets/leshy/leshy_head.png"
+dest_files=[ "res://.import/leshy_head.png-6a492720a03e5bea7bad40cc4e3a83d6.stex" ]
 
 [params]
 
@@ -25,5 +25,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

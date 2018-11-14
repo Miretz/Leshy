@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/first_forest.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -10,7 +11,14 @@ extents = Vector2( 26.6316, 27.1579 )
 
 [node name="Level" type="Node2D"]
 
-[node name="test_floor" type="StaticBody2D" parent="." index="0"]
+[node name="background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 510, 290 )
+z_index = -4096
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="test_floor" type="StaticBody2D" parent="." index="1"]
 
 position = Vector2( 567.825, 616.486 )
 scale = Vector2( 33.0736, 1.72747 )
@@ -34,10 +42,10 @@ shape = SubResource( 1 )
 
 modulate = Color( 0.0177002, 0.566406, 0, 1 )
 self_modulate = Color( 0.0078125, 1, 0, 1 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Leshy" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Leshy" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 142.592, 442.472 )
 

@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -720
 
 var velocity = Vector2(0,0)
 var is_grounded
+var current_direction = 1
 
 onready var raycasts = $Raycasts
 
@@ -30,7 +31,9 @@ func _get_input():
 	var move_direction = -int(left) + int(right)
 	velocity.x = lerp(velocity.x, SPEED * move_direction, _get_h_weight())
 	if move_direction != 0:
-		$body.scale.x = move_direction		
+		if current_direction != move_direction:
+			current_direction = move_direction
+			apply_scale(Vector2(-1,1))
 
 func _check_is_grounded():
 	for raycast in raycasts.get_children():
