@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/first_forest.png" type="Texture" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/first_forest.png" type="Texture" id=2]
+[ext_resource path="res://assets/leshy_foregrounds.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -11,17 +11,10 @@ extents = Vector2( 26.6316, 27.1579 )
 
 [node name="Level" type="Node2D"]
 
-[node name="background" type="Sprite" parent="." index="0"]
+[node name="test_floor" type="StaticBody2D" parent="." index="0"]
 
-position = Vector2( 510, 290 )
-z_index = -4096
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="test_floor" type="StaticBody2D" parent="." index="1"]
-
-position = Vector2( 567.825, 616.486 )
-scale = Vector2( 33.0736, 1.72747 )
+position = Vector2( 1532.38, 322.612 )
+scale = Vector2( 76.727, 1.72747 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -42,11 +35,87 @@ shape = SubResource( 1 )
 
 modulate = Color( 0.0177002, 0.566406, 0, 1 )
 self_modulate = Color( 0.0078125, 1, 0, 1 )
-texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Leshy" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Leshy" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 142.592, 442.472 )
+position = Vector2( 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="Leshy" index="3"]
+
+position = Vector2( 14.816, -84.944 )
+scale = Vector2( 2, 2 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="background" type="Sprite" parent="." index="2"]
+
+z_index = -4096
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="background4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 1022.91, -8.02411 )
+z_index = -4096
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="background2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 2047.02, -0.487366 )
+z_index = -4096
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="background3" type="Sprite" parent="." index="5"]
+
+position = Vector2( 3066.99, -1.40576 )
+z_index = -4096
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="." index="6"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="foreground2" type="Sprite" parent="." index="7"]
+
+position = Vector2( 1024.36, 0 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="foreground3" type="Sprite" parent="." index="8"]
+
+position = Vector2( 2036.49, -1.36041 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="foreground4" type="Sprite" parent="." index="9"]
+
+position = Vector2( 3028.2, -6.10352e-005 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 

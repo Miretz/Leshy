@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const UP = Vector2(0,-1)
-const SPEED = 125
+const SPEED = 3 * 96
 const GRAVITY = 1200
 const JUMP_VELOCITY = -720
 
@@ -9,7 +9,7 @@ var velocity = Vector2(0,0)
 var is_grounded
 var current_direction = 1
 
-onready var raycasts = $Raycasts
+onready var raycasts = $body/Raycasts
 
 func _ready():
 	pass
