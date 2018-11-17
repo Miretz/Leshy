@@ -9,7 +9,7 @@ var velocity = Vector2(0,0)
 var is_grounded
 var current_direction = 1
 
-onready var raycasts = $body/Raycasts
+onready var raycasts = $Raycasts
 
 func _ready():
 	pass
