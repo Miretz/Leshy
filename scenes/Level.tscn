@@ -1,19 +1,113 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/Effects/Fog.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/level/cave.png" type="Texture" id=2]
-[ext_resource path="res://assets/level/tree.png" type="Texture" id=3]
-[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/level/background.png" type="Texture" id=5]
-[ext_resource path="res://assets/level/foreground.png" type="Texture" id=6]
-[ext_resource path="res://assets/level/rock.png" type="Texture" id=7]
-[ext_resource path="res://assets/level/ground_fog.png" type="Texture" id=8]
-[ext_resource path="res://assets/level/total_bg.png" type="Texture" id=9]
+[ext_resource path="res://assets/level/tree.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Leshy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/level/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/level/cave.png" type="Texture" id=5]
+[ext_resource path="res://assets/level/ground_fog.png" type="Texture" id=6]
+[ext_resource path="res://assets/level/foreground.png" type="Texture" id=7]
+[ext_resource path="res://assets/level/underground_entrance.png" type="Texture" id=8]
+[ext_resource path="res://assets/level/underground_foreground_bottom.png" type="Texture" id=9]
+[ext_resource path="res://assets/level/underground_background.png" type="Texture" id=10]
+[ext_resource path="res://assets/level/underground_foreground.png" type="Texture" id=11]
+[ext_resource path="res://assets/level/rock.png" type="Texture" id=12]
+[ext_resource path="res://assets/level/total_bg.png" type="Texture" id=13]
+[ext_resource path="res://assets/level/underground_fill.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 26.6316, 27.1579 )
+extents = Vector2( 31.5962, 81.3413 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 1340 )
+
+[sub_resource type="Environment" id=3]
+
+background_mode = 4
+background_sky_custom_fov = 0.0
+background_color = Color( 0.300781, 0.0446472, 0.0446472, 1 )
+background_energy = 1.0
+background_canvas_max_layer = 0
+ambient_light_color = Color( 0, 0, 0, 1 )
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 1.0
+fog_enabled = false
+fog_color = Color( 0.5, 0.6, 0.7, 1 )
+fog_sun_color = Color( 1, 0.9, 0.7, 1 )
+fog_sun_amount = 0.0
+fog_depth_enabled = true
+fog_depth_begin = 10.0
+fog_depth_curve = 1.0
+fog_transmit_enabled = false
+fog_transmit_curve = 1.0
+fog_height_enabled = false
+fog_height_min = 0.0
+fog_height_max = 100.0
+fog_height_curve = 1.0
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 1.0
+auto_exposure_enabled = false
+auto_exposure_scale = 0.4
+auto_exposure_min_luma = 0.05
+auto_exposure_max_luma = 8.0
+auto_exposure_speed = 0.5
+ss_reflections_enabled = false
+ss_reflections_max_steps = 64
+ss_reflections_fade_in = 0.15
+ss_reflections_fade_out = 2.0
+ss_reflections_depth_tolerance = 0.2
+ss_reflections_roughness = true
+ssao_enabled = false
+ssao_radius = 1.0
+ssao_intensity = 1.0
+ssao_radius2 = 0.0
+ssao_intensity2 = 1.0
+ssao_bias = 0.01
+ssao_light_affect = 0.0
+ssao_color = Color( 0, 0, 0, 1 )
+ssao_quality = 0
+ssao_blur = 3
+ssao_edge_sharpness = 4.0
+dof_blur_far_enabled = false
+dof_blur_far_distance = 10.0
+dof_blur_far_transition = 5.0
+dof_blur_far_amount = 0.1
+dof_blur_far_quality = 1
+dof_blur_near_enabled = false
+dof_blur_near_distance = 2.0
+dof_blur_near_transition = 1.0
+dof_blur_near_amount = 0.1
+dof_blur_near_quality = 1
+glow_enabled = false
+glow_levels/1 = false
+glow_levels/2 = false
+glow_levels/3 = true
+glow_levels/4 = false
+glow_levels/5 = true
+glow_levels/6 = false
+glow_levels/7 = false
+glow_intensity = 0.8
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 2
+glow_hdr_threshold = 1.0
+glow_hdr_scale = 2.0
+glow_bicubic_upscale = false
+adjustment_enabled = true
+adjustment_brightness = 1.0
+adjustment_contrast = 1.05
+adjustment_saturation = 1.2
+_sections_unfolded = [ "Adjustments", "Tonemap" ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4080, 50 )
 
 [node name="Level" type="Node2D" index="0"]
 
@@ -22,13 +116,7 @@ extents = Vector2( 26.6316, 27.1579 )
 z_index = -4000
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
-[node name="cave" type="Sprite" parent="." index="1"]
-
-z_index = -10
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Z Index" ]
-
-[node name="trees" type="Node2D" parent="." index="2"]
+[node name="trees" type="Node2D" parent="." index="1"]
 
 editor/display_folded = true
 z_index = -4010
@@ -37,46 +125,45 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="tree" type="Sprite" parent="trees" index="0"]
 
 position = Vector2( -110, 0 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="tree2" type="Sprite" parent="trees" index="1"]
 
 position = Vector2( 1020, 60 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="tree3" type="Sprite" parent="trees" index="2"]
 
 position = Vector2( 1946.38, 50.9999 )
 scale = Vector2( -1, 1 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="tree4" type="Sprite" parent="trees" index="3"]
 
 position = Vector2( 3010, -120 )
 rotation = 0.103929
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="tree5" type="Sprite" parent="trees" index="4"]
 
 position = Vector2( 2499.52, 153.373 )
 rotation = -1.63611
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="tree6" type="Sprite" parent="trees" index="5"]
 
 position = Vector2( 1318.8, 150.282 )
 rotation = 1.01489
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="test_floor" type="StaticBody2D" parent="." index="3"]
+[node name="floor" type="StaticBody2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 1532.38, 322.612 )
 scale = Vector2( 76.727, 1.72747 )
 input_pickable = false
@@ -91,21 +178,51 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test_floor" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" index="0"]
 
-position = Vector2( 0.0435352, -26.1047 )
+visible = false
+position = Vector2( 0.0435352, 37.3368 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="test_floor" index="1"]
+[node name="Sprite" type="Sprite" parent="floor" index="1"]
 
 modulate = Color( 0.0177002, 0.566406, 0, 1 )
 self_modulate = Color( 0.0078125, 1, 0, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Leshy" parent="." index="4" instance=ExtResource( 4 )]
+[node name="floor2" type="StaticBody2D" parent="." index="3"]
+
+position = Vector2( 6622.61, 428.521 )
+scale = Vector2( 76.727, 1.72747 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor2" index="0"]
+
+visible = false
+position = Vector2( 0.0435352, -26.1047 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="floor2" index="1"]
+
+modulate = Color( 0.0177002, 0.566406, 0, 1 )
+self_modulate = Color( 0.0078125, 1, 0, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Leshy" parent="." index="4" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 position = Vector2( 0, 0 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Camera2D" type="Camera2D" parent="Leshy" index="3"]
 
@@ -142,16 +259,56 @@ _sections_unfolded = [ "Transform" ]
 [node name="background" type="Sprite" parent="section" index="0"]
 
 z_index = -4090
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="foreground" type="Sprite" parent="section" index="1"]
+[node name="cave" type="Sprite" parent="section" index="1"]
+
+z_index = -10
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="fog" type="Sprite" parent="section" index="2"]
+
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section" index="3"]
 
 z_index = 100
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="section4" type="Node2D" parent="." index="6"]
+[node name="section6" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( -1024, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="section6" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -4090
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="fog" type="Sprite" parent="section6" index="1"]
+
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section6" index="2"]
+
+position = Vector2( 14, 0 )
+z_index = 100
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="section4" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 2042, 0 )
@@ -160,16 +317,24 @@ _sections_unfolded = [ "Transform" ]
 [node name="background" type="Sprite" parent="section4" index="0"]
 
 z_index = -4090
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="foreground" type="Sprite" parent="section4" index="1"]
+[node name="fog3" type="Sprite" parent="section4" index="1"]
+
+position = Vector2( 6, 0 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section4" index="2"]
 
 z_index = 100
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="section2" type="Node2D" parent="." index="7"]
+[node name="section2" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 1020, 0 )
@@ -178,16 +343,24 @@ _sections_unfolded = [ "Transform" ]
 [node name="background" type="Sprite" parent="section2" index="0"]
 
 z_index = -4090
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="foreground" type="Sprite" parent="section2" index="1"]
+[node name="fog2" type="Sprite" parent="section2" index="1"]
+
+position = Vector2( 4, 0 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section2" index="2"]
 
 z_index = 100
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="section3" type="Node2D" parent="." index="8"]
+[node name="section3" type="Node2D" parent="." index="9"]
 
 editor/display_folded = true
 position = Vector2( 3062, 0 )
@@ -196,16 +369,202 @@ _sections_unfolded = [ "Transform" ]
 [node name="background" type="Sprite" parent="section3" index="0"]
 
 z_index = -4090
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="foreground" type="Sprite" parent="section3" index="1"]
+[node name="fog4" type="Sprite" parent="section3" index="1"]
+
+position = Vector2( 10, 0 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section3" index="2"]
 
 z_index = 100
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="rocks" type="Node2D" parent="." index="9"]
+[node name="section7" type="Node2D" parent="." index="10"]
+
+position = Vector2( 5110, 0 )
+scale = Vector2( -1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="section7" index="0"]
+
+z_index = -4090
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="fog4" type="Sprite" parent="section7" index="1"]
+
+position = Vector2( -9.94434, -1.10803 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground" type="Sprite" parent="section7" index="2"]
+
+z_index = 100
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="section5" type="Node2D" parent="." index="11"]
+
+editor/display_folded = true
+position = Vector2( 4086, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="section5" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -4090
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="fog4" type="Sprite" parent="section5" index="1"]
+
+position = Vector2( 10, 0 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="foreground_left" type="Sprite" parent="section5" index="2"]
+
+position = Vector2( -320, 0 )
+z_index = 100
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 567 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="foreground_right" type="Sprite" parent="section5" index="3"]
+
+position = Vector2( 329.513, 0 )
+z_index = 100
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 400, 567 )
+_sections_unfolded = [ "Region", "Transform", "Z Index" ]
+
+[node name="underground_section1" type="Node2D" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 4086, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section1" index="0"]
+
+z_index = -10
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section1" index="1"]
+
+z_index = 100
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="underground_section2" type="Node2D" parent="." index="13"]
+
+editor/display_folded = true
+position = Vector2( 3070, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section2" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -10
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section2" index="1"]
+
+z_index = 100
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="underground_section3" type="Node2D" parent="." index="14"]
+
+editor/display_folded = true
+position = Vector2( 2050, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section3" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -10
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section3" index="1"]
+
+z_index = 100
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="underground_section4" type="Node2D" parent="." index="15"]
+
+editor/display_folded = true
+position = Vector2( 1040, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section4" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -10
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section4" index="1"]
+
+z_index = 100
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="underground_section5" type="Node2D" parent="." index="16"]
+
+editor/display_folded = true
+position = Vector2( 20, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section5" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -10
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section5" index="1"]
+
+z_index = 100
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="underground_section6" type="Node2D" parent="." index="17"]
+
+editor/display_folded = true
+position = Vector2( -1000, 800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="background" type="Sprite" parent="underground_section6" index="0"]
+
+scale = Vector2( -1, 1 )
+z_index = -10
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="foreground_bottom" type="Sprite" parent="underground_section6" index="1"]
+
+z_index = 100
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rocks" type="Node2D" parent="." index="18"]
 
 editor/display_folded = true
 
@@ -213,14 +572,14 @@ editor/display_folded = true
 
 position = Vector2( 810, 130 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock3" type="Sprite" parent="rocks" index="1"]
 
 position = Vector2( 1600, 190 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock4" type="Sprite" parent="rocks" index="2"]
@@ -228,7 +587,7 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 1720, 190 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="rock5" type="Sprite" parent="rocks" index="3"]
@@ -237,7 +596,7 @@ position = Vector2( 1876.48, 211.354 )
 rotation = 2.64085
 scale = Vector2( 0.75, -0.75 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="rock2" type="Sprite" parent="rocks" index="4"]
@@ -245,7 +604,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 1004.82, 230.19 )
 rotation = -2.1048
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock6" type="Sprite" parent="rocks" index="5"]
@@ -253,10 +612,50 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 1034.82, 229.19 )
 rotation = -0.301028
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="rocks2" type="Node2D" parent="." index="10"]
+[node name="rock7" type="Sprite" parent="rocks" index="6"]
+
+position = Vector2( -572.72, 931.837 )
+rotation = -0.301028
+z_index = 20
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rock8" type="Sprite" parent="rocks" index="7"]
+
+position = Vector2( -566.104, 802.461 )
+rotation = -0.0658952
+z_index = 20
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rock9" type="Sprite" parent="rocks" index="8"]
+
+position = Vector2( -682.169, 897.424 )
+rotation = 1.61429
+z_index = 20
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rock10" type="Sprite" parent="rocks" index="9"]
+
+position = Vector2( -849.484, 942.644 )
+rotation = -0.203419
+z_index = 20
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rock11" type="Sprite" parent="rocks" index="10"]
+
+position = Vector2( -777.132, 716.543 )
+rotation = -0.203419
+z_index = 20
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="rocks2" type="Node2D" parent="." index="19"]
 
 editor/display_folded = true
 position = Vector2( 3620.68, 11.9998 )
@@ -267,14 +666,14 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 810, 130 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock3" type="Sprite" parent="rocks2" index="1"]
 
 position = Vector2( 1600, 190 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock4" type="Sprite" parent="rocks2" index="2"]
@@ -282,7 +681,7 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 1720, 190 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="rock5" type="Sprite" parent="rocks2" index="3"]
@@ -291,7 +690,7 @@ position = Vector2( 1402.27, 186.799 )
 rotation = 2.64085
 scale = Vector2( 0.75, -0.75 )
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="rock2" type="Sprite" parent="rocks2" index="4"]
@@ -299,7 +698,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 925.018, 215.457 )
 rotation = -0.88823
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="rock6" type="Sprite" parent="rocks2" index="5"]
@@ -307,51 +706,145 @@ _sections_unfolded = [ "Z Index" ]
 position = Vector2( 1034.82, 229.19 )
 rotation = -0.301028
 z_index = -4000
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="front_fogs" type="Node2D" parent="." index="11"]
+[node name="rock7" type="Sprite" parent="rocks2" index="6"]
+
+position = Vector2( 5266.97, 659.942 )
+rotation = -0.301028
+z_index = 15
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="absolute_bg" type="Sprite" parent="." index="20"]
+
+scale = Vector2( 15, 4 )
+z_index = -4096
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="invisible_wall" type="StaticBody2D" parent="." index="21"]
 
 editor/display_folded = true
-z_index = -4000
-_sections_unfolded = [ "Z Index" ]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="fog" type="Sprite" parent="front_fogs" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_wall" index="0"]
 
-z_index = 20
-z_as_relative = false
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+position = Vector2( -500, -10 )
+shape = SubResource( 2 )
 
-[node name="fog3" type="Sprite" parent="front_fogs" index="1"]
+[node name="invisible_wall2" type="StaticBody2D" parent="." index="22"]
 
-position = Vector2( 2048, 0 )
-z_index = 20
-z_as_relative = false
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+editor/display_folded = true
+position = Vector2( 5100, 180 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="fog2" type="Sprite" parent="front_fogs" index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="invisible_wall2" index="0"]
 
-position = Vector2( 1024, 0 )
-z_index = 20
-z_as_relative = false
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+visible = false
+position = Vector2( -500, -10 )
+shape = SubResource( 2 )
 
-[node name="fog4" type="Sprite" parent="front_fogs" index="3"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="23"]
 
-position = Vector2( 3072, 0 )
-z_index = 20
-z_as_relative = false
-texture = ExtResource( 8 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+environment = SubResource( 3 )
 
-[node name="absolute_bg" type="Sprite" parent="." index="12"]
+[node name="floor_ug" type="StaticBody2D" parent="." index="24"]
 
-scale = Vector2( 10, 3 )
+editor/display_folded = true
+position = Vector2( 3690, 1060 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor_ug" index="0"]
+
+position = Vector2( -500, 10 )
+shape = SubResource( 4 )
+
+[node name="ug_fills" type="Node2D" parent="." index="25"]
+
+editor/display_folded = true
+
+[node name="ug_fill" type="Sprite" parent="ug_fills" index="0"]
+
+position = Vector2( 25.0529, 556.66 )
+z_index = -200
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill6" type="Sprite" parent="ug_fills" index="1"]
+
+position = Vector2( -973.298, 550 )
+z_index = -200
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill2" type="Sprite" parent="ug_fills" index="2"]
+
+position = Vector2( 1050, 560 )
+z_index = -200
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill3" type="Sprite" parent="ug_fills" index="3"]
+
+position = Vector2( 2020, 550 )
+z_index = -200
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill4" type="Sprite" parent="ug_fills" index="4"]
+
+position = Vector2( 3010, 540 )
+z_index = -200
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill5" type="Sprite" parent="ug_fills" index="5"]
+
+position = Vector2( 3459.43, 538 )
+z_index = -402
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill7" type="Sprite" parent="ug_fills" index="6"]
+
+position = Vector2( 4465.12, 553.324 )
 z_index = -4096
-texture = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="ug_fill8" type="Sprite" parent="ug_fills" index="7"]
+
+position = Vector2( 4728.04, 516.052 )
+z_index = -402
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="ug_fill9" type="Sprite" parent="ug_fills" index="8"]
+
+position = Vector2( 4731.05, 1082.81 )
+scale = Vector2( 1, -1 )
+z_index = -402
+texture = ExtResource( 14 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 
