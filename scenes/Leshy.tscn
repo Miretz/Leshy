@@ -387,8 +387,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="body" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -13.2706, -79.6804 )
-rotation = 0.0789079
 texture = ExtResource( 2 )
 offset = Vector2( 30, -20 )
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -396,7 +396,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 [node name="LeftLegTop" type="Sprite" parent="body" index="0"]
 
 position = Vector2( 19.8938, 103.711 )
-rotation = 0.349873
+rotation = -0.276827
 z_index = -1
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
@@ -404,7 +404,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 [node name="LeftLegBottom" type="Sprite" parent="body/LeftLegTop" index="0"]
 
 position = Vector2( 3.36047, 51.1703 )
-rotation = 0.646969
+rotation = 0.216152
 z_index = -1
 texture = ExtResource( 4 )
 offset = Vector2( 0, 20 )
@@ -413,14 +413,14 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 [node name="RightLegTop" type="Sprite" parent="body" index="1"]
 
 position = Vector2( 19.8938, 103.711 )
-rotation = -0.817258
+rotation = 0.0602381
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="RightLegBottom" type="Sprite" parent="body/RightLegTop" index="0"]
 
 position = Vector2( 3.36047, 51.1703 )
-rotation = 0.308474
+rotation = 0.203551
 texture = ExtResource( 4 )
 offset = Vector2( 0, 20 )
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -428,14 +428,14 @@ _sections_unfolded = [ "Offset", "Transform" ]
 [node name="RightArm" type="Sprite" parent="body" index="2"]
 
 position = Vector2( 7.63336, 20.2111 )
-rotation = 1.9491
+rotation = 1.28338
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="LeftArm" type="Sprite" parent="body" index="3"]
 
 position = Vector2( 7.63336, 20.2111 )
-rotation = 0.754115
+rotation = 1.12659
 z_index = -1
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Z Index" ]
@@ -443,7 +443,6 @@ _sections_unfolded = [ "Offset", "Z Index" ]
 [node name="head" type="Sprite" parent="body" index="4"]
 
 position = Vector2( 18.2885, -11.8846 )
-rotation = 0.0686215
 texture = ExtResource( 6 )
 offset = Vector2( 15, -14 )
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -496,5 +495,32 @@ enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 16 )
 collision_mask = 3
+
+[node name="cam" type="Camera2D" parent="." index="4"]
+
+position = Vector2( 0, -80 )
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Transform" ]
 
 
