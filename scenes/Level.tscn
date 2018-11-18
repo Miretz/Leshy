@@ -111,7 +111,7 @@ _sections_unfolded = [ "Adjustments", "Tonemap" ]
 custom_solver_bias = 0.0
 extents = Vector2( 4080, 50 )
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -760,18 +760,16 @@ shape = SubResource( 4 )
 
 [node name="ug_fills" type="Node2D" parent="." index="25"]
 
-editor/display_folded = true
-
 [node name="ug_fill" type="Sprite" parent="ug_fills" index="0"]
 
-position = Vector2( 25.0529, 556.66 )
+position = Vector2( 29.5749, 555.153 )
 z_index = -200
 texture = ExtResource( 15 )
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="ug_fill6" type="Sprite" parent="ug_fills" index="1"]
 
-position = Vector2( -973.298, 550 )
+position = Vector2( -967.856, 550 )
 z_index = -200
 texture = ExtResource( 15 )
 _sections_unfolded = [ "Visibility", "Z Index" ]
