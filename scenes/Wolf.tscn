@@ -366,6 +366,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( -0.660324, 14.0948 )
 shape = SubResource( 1 )
 
