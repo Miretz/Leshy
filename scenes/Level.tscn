@@ -31,7 +31,7 @@ extents = Vector2( 10, 1340 )
 custom_solver_bias = 0.0
 extents = Vector2( 4080, 50 )
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -750,6 +750,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Wolf" parent="." index="24" instance=ExtResource( 15 )]
 
-position = Vector2( -333.287, 156.447 )
+position = Vector2( -333, 156 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 

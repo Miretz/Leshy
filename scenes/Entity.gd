@@ -15,13 +15,28 @@ onready var raycasts = $Raycasts
 
 func _ready():
 	control_enabled = false
+	visible = false
 	pass
 
 func enable():
+	
+#	$Tween.interpolate_property($body, "scale", 
+#		Vector2(0.5,0.5), Vector2(1.0,1.0),
+#		0.3, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+#	$Tween.start()
+	
+	visible = true
 	control_enabled = true
 	$cam.current = true
 
 func disable():
+	
+#	$Tween.interpolate_property($body, "scale", 
+#		Vector2(1.0,1.0), Vector2(0.5,0.5),
+#		0.3, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+#	$Tween.start()
+	
+	visible = false
 	velocity = Vector2(0,0)
 	control_enabled = false
 	_anim_switch("idle")

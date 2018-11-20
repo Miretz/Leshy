@@ -313,7 +313,7 @@ tracks/11/keys = {
 "values": [ 0.0, 7.56901, 0.0, 0.0, 0.0 ]
 }
 
-[node name="Wolf" type="KinematicBody2D"]
+[node name="Wolf" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -324,6 +324,7 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="body" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( -1.56745, -0.96731 )
 rotation = -0.0279179
 texture = ExtResource( 2 )
@@ -446,5 +447,14 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Limit", "Transform" ]
+
+[node name="Tween" type="Tween" parent="." index="5"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 
