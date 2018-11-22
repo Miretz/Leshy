@@ -5,6 +5,9 @@ const SPEED = 3 * 96
 const GRAVITY = 1200
 const JUMP_VELOCITY = -520
 
+const MIN_ZOOM = 1.0
+const MAX_ZOOM = 2.0
+
 var velocity = Vector2(0,0)
 var is_grounded
 var current_direction = 1
@@ -12,6 +15,7 @@ var current_direction = 1
 var control_enabled = false
 
 onready var raycasts = $Raycasts
+onready var camera = $cam
 
 func _ready():
 	control_enabled = false
@@ -27,7 +31,7 @@ func enable():
 	
 	visible = true
 	control_enabled = true
-	$cam.current = true
+	camera.current = true
 
 func disable():
 	
@@ -40,7 +44,7 @@ func disable():
 	velocity = Vector2(0,0)
 	control_enabled = false
 	_anim_switch("idle")
-	$cam.current = false
+	camera.current = false
 	
 func _physics_process(delta):
 	_get_input()
@@ -48,6 +52,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, UP)
 	is_grounded = _check_is_grounded()
 	_update_animation()
+	_update_camera()
 
 func _input(event):
 	if !control_enabled:
@@ -81,6 +86,11 @@ func _update_animation():
 		_anim_switch("walk")
 	else:
 		_anim_switch("idle")
+	
+func _update_camera():
+	var zoom = ((abs(velocity.x) * (MAX_ZOOM - MIN_ZOOM)) / SPEED) + MIN_ZOOM
+	zoom = lerp(camera.zoom.x, zoom, 0.02)
+	camera.zoom = Vector2(zoom, zoom)
 	
 func _anim_switch(animation):
 	if $anim.current_animation != animation:
