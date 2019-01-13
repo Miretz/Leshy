@@ -6,7 +6,7 @@ const GRAVITY = 1200
 const JUMP_VELOCITY = -520
 
 const MIN_ZOOM = 1.0
-const MAX_ZOOM = 2.0
+const MAX_ZOOM = 1.1
 
 var velocity = Vector2(0,0)
 var is_grounded
